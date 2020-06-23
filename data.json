@@ -1,0 +1,34 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "author": "viveloper",
+      "title": "React",
+      "content": "재미있는 리액트, 다시 공부하니 더 재미있군."
+    },
+    {
+      "id": 2,
+      "author": "viveloper",
+      "title": "ContextAPI & useReducer",
+      "content": "상태관리를 보다 체계적으로 할 수 있군"
+    },
+    {
+      "id": 3,
+      "author": "viveloper",
+      "title": "Redux",
+      "content": "훌륭한 FLUX Architecture 라이브러리군."
+    },
+    {
+      "id": 4,
+      "author": "viveloper",
+      "title": "Redux Thunk",
+      "content": "비동기 작업을 깔끔하게 할 수 있군."
+    },
+    {
+      "id": 5,
+      "author": "viveloper",
+      "title": "Redux Saga",
+      "content": "기능이 막강한 미들웨어이군, 자바스크립트의 Generator라는 문법도 상당히 유용하구나."
+    }
+  ]
+}
