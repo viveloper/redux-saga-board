@@ -10,10 +10,10 @@ function PostsContainer() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getPosts());
+    dispatch(getPosts(true));
   }, [dispatch]);
 
-  if (loading) return <div>loading...</div>;
+  if (loading && !posts) return <div>loading...</div>;
   if (error) return <div>error!</div>;
   if (!posts) return null;
 

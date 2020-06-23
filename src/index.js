@@ -3,15 +3,21 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter } from 'react-router-dom';
+import { Router } from 'react-router-dom';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
 import logger from 'redux-logger';
 import reducer, { saga } from './modules';
+import { createBrowserHistory } from 'history';
 
-const sagaMiddleware = createSagaMiddleware();
+const customHistory = createBrowserHistory();
+const sagaMiddleware = createSagaMiddleware({
+  context: {
+    history: customHistory,
+  },
+});
 const store = createStore(
   reducer,
   composeWithDevTools(applyMiddleware(sagaMiddleware, logger))
@@ -21,11 +27,11 @@ sagaMiddleware.run(saga);
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <Router history={customHistory}>
       <Provider store={store}>
         <App />
       </Provider>
-    </BrowserRouter>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
